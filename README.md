@@ -1,4 +1,4 @@
-# 🎨 Tailwind CSS 애니메이션 템플릿
+# Tailwind CSS 애니메이션 템플릿
 
 Next.js와 Tailwind CSS v4를 사용한 다양한 애니메이션 효과를 탐색하고 배울 수 있는 인터랙티브 쇼케이스 프로젝트입니다.
 
@@ -7,9 +7,9 @@ Next.js와 Tailwind CSS v4를 사용한 다양한 애니메이션 효과를 탐�
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-38bdf8?style=flat-square&logo=tailwind-css)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)
 
-## ✨ 주요 기능
+## 주요 기능
 
-### 🎭 다양한 애니메이션 효과
+### 다양한 애니메이션 효과
 
 - **Fade** ✨ - 부드러운 페이드 인/아웃 효과
 - **Slide** ➡️ - 슬라이드 애니메이션
@@ -22,14 +22,14 @@ Next.js와 Tailwind CSS v4를 사용한 다양한 애니메이션 효과를 탐�
 - **Flip** 🔃 - 플립 애니메이션
 - **Shake** 📳 - 흔들기 효과
 
-### 🎯 두 가지 구현 방식
+### 두 가지 구현 방식
 
 각 애니메이션은 두 가지 방식으로 구현되어 있습니다:
 
 1. **CSS 애니메이션** - Tailwind CSS 클래스를 사용한 순수 CSS 애니메이션
 2. **Framer Motion** - JavaScript 기반의 더 복잡하고 인터랙티브한 애니메이션
 
-## 🚀 시작하기
+## 시작하기
 
 ### 필수 요구사항
 
@@ -63,7 +63,7 @@ npm run dev
 
 4. 브라우저에서 [http://localhost:3000](http://localhost:3000)을 열어 결과 확인
 
-## 📦 기술 스택
+## 기술 스택
 
 ### 핵심 기술
 
@@ -78,7 +78,7 @@ npm run dev
 - ESLint - 코드 품질 관리
 - PostCSS - CSS 후처리
 
-## 🎨 사용 방법
+## 사용 방법
 
 ### CSS 애니메이션 사용
 
@@ -108,7 +108,7 @@ import { motion } from "framer-motion";
 </motion.div>
 ```
 
-## 📁 프로젝트 구조
+## 프로젝트 구조
 
 ```
 tailwind-animation-templates/
@@ -132,7 +132,7 @@ tailwind-animation-templates/
 └── README.md
 ```
 
-## 🌟 주요 특징
+## 주요 특징
 
 ### 인터랙티브 데모
 
@@ -152,7 +152,7 @@ tailwind-animation-templates/
 
 - 모든 화면 크기에서 최적화된 경험을 제공합니다
 
-## 🛠️ 빌드
+## 빌드
 
 프로덕션 빌드를 생성하려면:
 
@@ -161,14 +161,14 @@ npm run build
 npm start
 ```
 
-## 📝 스크립트
+## 스크립트
 
 - `npm run dev` - Turbopack을 사용한 개발 서버 실행
 - `npm run build` - 프로덕션 빌드 생성
 - `npm start` - 프로덕션 서버 실행
 - `npm run lint` - ESLint 실행
 
-## 🤝 기여하기
+## 기여하기
 
 기여는 언제나 환영합니다! 새로운 애니메이션을 추가하거나 기존 애니메이션을 개선하고 싶으시다면:
 
@@ -178,16 +178,12 @@ npm start
 4. 브랜치에 Push합니다 (`git push origin feature/amazing-animation`)
 5. Pull Request를 생성합니다
 
-## 📄 라이선스
+## 라이선스
 
 이 프로젝트는 학습 및 참고 목적으로 만들어졌습니다.
 
-## 🔗 참고 자료
+## 참고 자료
 
 - [Tailwind CSS 공식 문서](https://tailwindcss.com/docs)
 - [Framer Motion 공식 문서](https://www.framer.com/motion/)
 - [Next.js 공식 문서](https://nextjs.org/docs)
-
----
-
-만든이: 💜 Tailwind CSS와 Next.js로 제작
