@@ -536,3 +536,328 @@ body {
 .animate-elastic-bounce {
   animation: elasticBounce 1s ease-out;
 }
+
+/* Spin Animations */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinReverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes spinScale {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.3);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes spinBounce {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg) scale(1.1);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinFade {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes spin3D {
+  0% {
+    transform: perspective(1000px) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(1000px) rotateY(360deg);
+  }
+}
+
+.animate-spin-normal {
+  animation: spin 1s linear;
+}
+
+.animate-spin-infinite {
+  animation: spin 2s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spinReverse 1s linear;
+}
+
+.animate-spin-scale {
+  animation: spinScale 1s ease-in-out;
+}
+
+.animate-spin-bounce {
+  animation: spinBounce 1.2s ease-in-out;
+}
+
+.animate-spin-fade {
+  animation: spinFade 1s ease-in-out;
+}
+
+.animate-spin-3d {
+  animation: spin3D 1s ease-in-out;
+}
+
+/* Pulse Animations */
+@keyframes pulseNormal {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.8;
+  }
+}
+
+@keyframes pulseSoft {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes pulseStrong {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(147, 51, 234, 0.7);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px 10px rgba(147, 51, 234, 0);
+  }
+}
+
+@keyframes pulseShadow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 30px 15px rgba(59, 130, 246, 0);
+  }
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(147, 51, 234, 0.7);
+  }
+  50% {
+    transform: scale(1);
+    box-shadow: 0 0 0 20px rgba(147, 51, 234, 0);
+  }
+  100% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(147, 51, 234, 0);
+  }
+}
+
+.animate-pulse-normal {
+  animation: pulseNormal 1.5s ease-in-out;
+}
+
+.animate-pulse-infinite {
+  animation: pulseNormal 2s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulseSoft 1.5s ease-in-out infinite;
+}
+
+.animate-pulse-strong {
+  animation: pulseStrong 1.5s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.animate-pulse-shadow {
+  animation: pulseShadow 2s ease-in-out infinite;
+}
+
+.animate-pulse-ring {
+  animation: pulseRing 2s ease-in-out infinite;
+}
+
+/* Wiggle Animations */
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes wiggleSoft {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes wiggleStrong {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-20deg);
+  }
+  75% {
+    transform: rotate(20deg);
+  }
+}
+
+@keyframes wiggleHorizontal {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  75% {
+    transform: translateX(10px);
+  }
+}
+
+@keyframes wiggleVertical {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-10px);
+  }
+  75% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes wiggleScale {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(-10deg) scale(1.1);
+  }
+  75% {
+    transform: rotate(10deg) scale(1.1);
+  }
+}
+
+@keyframes wiggleCrazy {
+  0%,
+  100% {
+    transform: rotate(0deg) translateX(0) translateY(0);
+  }
+  25% {
+    transform: rotate(-15deg) translateX(-8px) translateY(-5px);
+  }
+  50% {
+    transform: rotate(15deg) translateX(8px) translateY(5px);
+  }
+  75% {
+    transform: rotate(-10deg) translateX(-5px) translateY(8px);
+  }
+}
+
+.animate-wiggle {
+  animation: wiggle 0.5s ease-in-out;
+}
+
+.animate-wiggle-infinite {
+  animation: wiggle 1s ease-in-out infinite;
+}
+
+.animate-wiggle-soft {
+  animation: wiggleSoft 1s ease-in-out infinite;
+}
+
+.animate-wiggle-strong {
+  animation: wiggleStrong 0.8s ease-in-out infinite;
+}
+
+.animate-wiggle-horizontal {
+  animation: wiggleHorizontal 0.5s ease-in-out;
+}
+
+.animate-wiggle-vertical {
+  animation: wiggleVertical 0.5s ease-in-out;
+}
+
+.animate-wiggle-scale {
+  animation: wiggleScale 0.6s ease-in-out;
+}
+
+.animate-wiggle-crazy {
+  animation: wiggleCrazy 0.8s ease-in-out infinite;
+}
