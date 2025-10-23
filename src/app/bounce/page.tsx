@@ -213,9 +213,9 @@ export default function BouncePage() {
             </svg>
             홈으로 돌아가기
           </Link>
-          <h1 className="text-4xl font-bold mb-4 text-gray-800 dark:text-white">
+          <p className="text-4xl font-bold mb-4 text-gray-800 dark:text-white">
             Bounce 애니메이션
-          </h1>
+          </p>
           <p className="text-gray-600 dark:text-gray-300 text-lg">
             탄력있는 바운스 효과를 확인해보세요
           </p>
@@ -256,9 +256,9 @@ export default function BouncePage() {
                   key={index}
                   className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700"
                 >
-                  <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">
+                  <p className="text-xl font-bold mb-2 text-gray-800 dark:text-white">
                     {variant.title}
-                  </h3>
+                  </p>
                   <p className="text-gray-600 dark:text-gray-400 mb-6">
                     {variant.description}
                   </p>
@@ -308,9 +308,9 @@ export default function BouncePage() {
                   key={index}
                   className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700"
                 >
-                  <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">
+                  <p className="text-xl font-bold mb-2 text-gray-800 dark:text-white">
                     {variant.title}
-                  </h3>
+                  </p>
                   <p className="text-gray-600 dark:text-gray-400 mb-6">
                     {variant.description}
                   </p>
@@ -352,9 +352,9 @@ export default function BouncePage() {
 
         {/* Usage Guide */}
         <div className="mt-16 bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
-          <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">
+          <p className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">
             사용 방법
-          </h2>
+          </p>
 
           {/* CSS Animation Usage */}
           {activeTab === "css" && (

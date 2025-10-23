@@ -23,9 +23,9 @@ export default function FlipPage() {
           </svg>
           홈으로 돌아가기
         </Link>
-        <h1 className="text-4xl font-bold mb-4 text-gray-800 dark:text-white">
+        <p className="text-4xl font-bold mb-4 text-gray-800 dark:text-white">
           Flip 애니메이션
-        </h1>
+        </p>
         <p className="text-gray-600 dark:text-gray-300 text-lg">
           준비 중입니다...
         </p>

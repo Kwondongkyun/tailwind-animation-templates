@@ -31,6 +31,12 @@ const animations = [
   { name: "Wiggle", path: "/wiggle", description: "흔들림 효과", icon: "〰️" },
   { name: "Flip", path: "/flip", description: "플립 애니메이션", icon: "🔃" },
   { name: "Shake", path: "/shake", description: "흔들기 효과", icon: "📳" },
+  {
+    name: "Activity",
+    path: "/activity",
+    description: "활동 피드 (Next.js 16)",
+    icon: "🎯",
+  },
 ];
 
 export default function Home() {
@@ -39,9 +45,9 @@ export default function Home() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <header className="text-center mb-16 pt-12">
-          <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+          <p className="text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
             Tailwind CSS 애니메이션 템플릿
-          </h1>
+          </p>
           <p className="text-gray-600 dark:text-gray-300 text-lg">
             다양한 Tailwind CSS 애니메이션 효과를 확인하고 사용해보세요
           </p>
@@ -58,9 +64,9 @@ export default function Home() {
               <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
                 {animation.icon}
               </div>
-              <h2 className="text-2xl font-bold mb-2 text-gray-800 dark:text-white">
+              <p className="text-2xl font-bold mb-2 text-gray-800 dark:text-white">
                 {animation.name}
-              </h2>
+              </p>
               <p className="text-gray-600 dark:text-gray-400">
                 {animation.description}
               </p>
