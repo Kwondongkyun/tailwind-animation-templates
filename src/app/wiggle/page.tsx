@@ -136,24 +136,24 @@ animate={{
 }}
 transition={{ duration: 0.6, ease: "easeInOut" }}`,
   },
-  {
-    title: "Wiggle Spring",
-    description: "스프링 흔들기",
-    initial: { rotate: 0 },
-    animate: { rotate: [0, -15, 15, 0] },
-    transition: {
-      type: "spring" as const,
-      stiffness: 500,
-      damping: 8,
-    },
-    code: `initial={{ rotate: 0 }}
-animate={{ rotate: [0, -15, 15, 0] }}
-transition={{ 
-  type: "spring", 
-  stiffness: 500, 
-  damping: 8 
-}}`,
-  },
+  //   {
+  //     title: "Wiggle Spring",
+  //     description: "스프링 흔들기",
+  //     initial: { rotate: 0 },
+  //     animate: { rotate: [0, -15, 15, 0] },
+  //     transition: {
+  //       type: "spring" as const,
+  //       stiffness: 500,
+  //       damping: 8,
+  //     },
+  //     code: `initial={{ rotate: 0 }}
+  // animate={{ rotate: [0, -15, 15, 0] }}
+  // transition={{
+  //   type: "spring",
+  //   stiffness: 500,
+  //   damping: 8
+  // }}`,
+  //   },
 ];
 
 export default function WigglePage() {
