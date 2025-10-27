@@ -307,7 +307,7 @@ export default function SpinnerPage() {
   const [activeTab, setActiveTab] = useState<"css" | "framer">("css");
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 p-8">
+    <div className="min-h-screen bg-white p-8">
       <div className="max-w-7xl mx-auto">
         {/* Back Button & Header */}
         <div className="mb-8">
