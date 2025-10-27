@@ -284,7 +284,7 @@ export default function ActivityPage() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 p-8">
+    <div className="min-h-screen bg-white p-8">
       <div className="max-w-7xl mx-auto">
         {/* Back Button & Header */}
         <div className="mb-8">
@@ -606,7 +606,7 @@ function TabExample() {
             animate={{ opacity: 1, y: 0 }}
           >
             {/* Demo Description */}
-            <div className="bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 rounded-xl p-6 mb-8 border border-purple-200 dark:border-purple-800">
+            <div className="bg-linear-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 rounded-xl p-6 mb-8 border border-purple-200 dark:border-purple-800">
               <p className="text-xl font-bold text-gray-800 dark:text-white mb-2">
                 직접 체험해보세요!
               </p>

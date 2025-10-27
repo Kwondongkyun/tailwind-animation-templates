@@ -146,7 +146,7 @@ export default function RotatePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 p-8">
+    <div className="min-h-screen bg-white p-8">
       <div className="max-w-7xl mx-auto">
         {/* Back Button & Header */}
         <div className="mb-8">
@@ -224,7 +224,7 @@ export default function RotatePage() {
                     {activeAnimations.has(index) && (
                       <div
                         key={`anim-${index}-${Date.now()}`}
-                        className={`${variant.className} bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg p-6 text-white font-semibold`}
+                        className={`${variant.className} bg-linear-to-r from-purple-500 to-blue-500 rounded-lg p-6 text-white font-semibold`}
                       >
                         회전
                       </div>
@@ -275,7 +275,7 @@ export default function RotatePage() {
                         initial={variant.initial}
                         animate={variant.animate}
                         transition={{ duration: index === 0 ? 1 : 0.6 }}
-                        className="bg-gradient-to-r from-pink-500 to-purple-500 rounded-lg p-6 text-white font-semibold"
+                        className="bg-linear-to-r from-pink-500 to-purple-500 rounded-lg p-6 text-white font-semibold"
                         style={{ transformStyle: "preserve-3d" }}
                       >
                         회전
