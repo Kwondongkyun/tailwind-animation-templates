@@ -15,6 +15,7 @@ import {
   Heart,
   SquareActivity,
   Shuffle,
+  Loader2,
 } from "lucide-react";
 
 import {
@@ -53,6 +54,7 @@ const animations = [
 
 const components = [
   { name: "Activity", path: "/activity", icon: Zap, badge: "React 19.2" },
+  { name: "Spinner", path: "/spinner", icon: Loader2, badge: "Loading" },
 ];
 
 export function AppSidebar() {
