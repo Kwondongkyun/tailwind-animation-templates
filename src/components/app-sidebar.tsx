@@ -16,6 +16,7 @@ import {
   SquareActivity,
   Shuffle,
   Loader2,
+  MousePointerClick,
 } from "lucide-react";
 
 import {
@@ -53,6 +54,12 @@ const animations = [
 ];
 
 const components = [
+  {
+    name: "Animated Button",
+    path: "/animated-button",
+    icon: MousePointerClick,
+    badge: "New",
+  },
   { name: "Activity", path: "/activity", icon: Zap, badge: "React 19.2" },
   { name: "Spinner", path: "/spinner", icon: Loader2, badge: "Loading" },
 ];
