@@ -7,6 +7,7 @@ import {
   ArrowUpIcon,
   ArrowUpRightIcon,
   CircleFadingArrowUpIcon,
+  ExternalLink,
 } from "lucide-react";
 import { IconGitBranch } from "@tabler/icons-react";
 import Link from "next/link";
@@ -60,11 +61,13 @@ function CodeBlock({ code }: { code: string }) {
 
 function ExampleSection({
   title,
+  titleLink,
   description,
   preview,
   code,
 }: {
   title: string;
+  titleLink?: string;
   description?: string;
   preview: React.ReactNode;
   code: string;
@@ -72,7 +75,19 @@ function ExampleSection({
   return (
     <div className="space-y-4">
       <div>
-        <h2 className="text-2xl font-bold mb-2">{title}</h2>
+        <h2 className="text-2xl font-bold mb-2">
+          {titleLink ? (
+            <Link
+              href={titleLink}
+              className="inline-flex items-center gap-2 hover:text-primary underline-offset-4 hover:underline"
+            >
+              {title}
+              <ExternalLink className="size-5" />
+            </Link>
+          ) : (
+            title
+          )}
+        </h2>
         {description && <p className="text-muted-foreground">{description}</p>}
       </div>
       <Tabs defaultValue="preview" className="w-full">
