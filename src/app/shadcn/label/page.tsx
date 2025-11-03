@@ -102,12 +102,12 @@ function ExampleSection({
 
 export default function LabelPage() {
   return (
-    <div className="flex h-screen overflow-hidden flex-col">
+    <div className="flex h-screen flex-col">
       <PageHeader
         title="Label"
         description="폼 컨트롤과 연결된 접근 가능한 레이블입니다."
       />
-      <main className="flex-1 overflow-y-auto">
+      <main className="flex-1">
         <div className="container max-w-6xl mx-auto p-8 space-y-12">
           {/* Introduction */}
           <div className="space-y-4">
@@ -309,11 +309,7 @@ export { Label }`}
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="m@example.com"
-                  />
+                  <Input id="email" type="email" placeholder="m@example.com" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="password">Password</Label>
@@ -542,4 +538,3 @@ export { Label }`}
     </div>
   );
 }
-

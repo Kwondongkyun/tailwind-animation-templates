@@ -127,12 +127,12 @@ function PasswordInput() {
 
 export default function InputPage() {
   return (
-    <div className="flex h-screen overflow-hidden flex-col">
+    <div className="flex h-screen flex-col">
       <PageHeader
         title="Input"
         description="텍스트 입력을 받는 입력 필드입니다."
       />
-      <main className="flex-1 overflow-y-auto">
+      <main className="flex-1">
         <div className="container max-w-6xl mx-auto p-8 space-y-12">
           {/* Introduction */}
           <div className="space-y-4">

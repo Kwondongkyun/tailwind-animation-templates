@@ -125,12 +125,12 @@ const notifications = [
 
 export default function CardPage() {
   return (
-    <div className="flex h-screen overflow-hidden flex-col">
+    <div className="flex h-screen flex-col">
       <PageHeader
         title="Card"
         description="헤더, 컨텐츠, 푸터를 포함한 카드를 표시합니다."
       />
-      <main className="flex-1 overflow-y-auto">
+      <main className="flex-1">
         <div className="container max-w-6xl mx-auto p-8 space-y-12">
           {/* Introduction */}
           <div className="space-y-4">

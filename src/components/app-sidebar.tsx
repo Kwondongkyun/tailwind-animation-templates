@@ -247,18 +247,20 @@ export function AppSidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <div className="text-xs text-muted-foreground space-y-1 px-2 py-2">
-              <p className="font-semibold text-foreground mb-2">기술 스택</p>
-              <p>✨ Tailwind CSS v4</p>
-              <p>⚛️ React 19.2</p>
-              <p>⚡ Next.js 16</p>
+              <p className="text-sm font-semibold text-foreground mb-2">
+                기술 스택
+              </p>
+              <p>Tailwind CSS v4</p>
+              <p>React 19.2</p>
+              <p>Next.js 16</p>
               <div className="border-t border-border mt-2 pt-2">
-                <p className="font-semibold text-foreground mb-1">
+                <p className="text-sm font-semibold text-foreground mb-1">
                   컴포넌트 구성
                 </p>
-                <p>🎨 Shadcn UI - 기본</p>
-                {kiboComponents.length > 0 && <p>📦 Kibo UI - 고급</p>}
-                <p>🔧 Custom - 직접 구현</p>
-                <p>✨ Animation - 애니메이션</p>
+                <p>Shadcn UI - 기본 컴포넌트</p>
+                <p>Kibo UI - 고급 컴포넌트</p>
+                <p>Custom - 커스텀 컴포넌트</p>
+                <p>Animation - 애니메이션 컴포넌트</p>
               </div>
             </div>
           </SidebarMenuItem>

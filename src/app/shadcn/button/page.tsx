@@ -110,12 +110,12 @@ function ExampleSection({
 
 export default function ButtonPage() {
   return (
-    <div className="flex h-screen overflow-hidden flex-col">
+    <div className="flex h-screen flex-col">
       <PageHeader
         title="Button"
         description="클릭 가능한 버튼 컴포넌트입니다."
       />
-      <main className="flex-1 overflow-y-auto">
+      <main className="flex-1">
         <div className="container max-w-6xl mx-auto p-8 space-y-12">
           {/* Introduction */}
           <div className="space-y-4">

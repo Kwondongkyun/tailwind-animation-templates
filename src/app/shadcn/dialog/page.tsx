@@ -111,12 +111,12 @@ function ExampleSection({
 
 export default function DialogPage() {
   return (
-    <div className="flex h-screen overflow-hidden flex-col">
+    <div className="flex h-screen flex-col">
       <PageHeader
         title="Dialog"
         description="기본 창이나 다른 다이얼로그 창 위에 겹쳐진 창입니다."
       />
-      <main className="flex-1 overflow-y-auto">
+      <main className="flex-1">
         <div className="container max-w-6xl mx-auto p-8 space-y-12">
           {/* Introduction */}
           <div className="space-y-4">
