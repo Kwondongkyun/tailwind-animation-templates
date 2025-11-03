@@ -17,6 +17,9 @@ import {
   Shuffle,
   Loader2,
   MousePointerClick,
+  Boxes,
+  Component,
+  Palette,
 } from "lucide-react";
 
 import {
@@ -40,7 +43,26 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 
-const animations = [
+// Shadcn UI 기본 컴포넌트
+const shadcnComponents = [
+  { name: "Button", path: "/shadcn/button", icon: MousePointerClick },
+  { name: "Input", path: "/shadcn/input", icon: Component },
+  { name: "Card", path: "/shadcn/card", icon: Component },
+  { name: "Dialog", path: "/shadcn/dialog", icon: Component },
+  { name: "Tooltip", path: "/shadcn/tooltip", icon: Component },
+];
+
+// Kibo UI 복잡한 컴포넌트 (추후 추가 예정)
+const kiboComponents: any[] = [];
+
+// 커스텀 구현 컴포넌트
+const customComponents = [
+  { name: "Activity", path: "/activity", icon: Zap, badge: "React 19.2" },
+  { name: "Spinner", path: "/spinner", icon: Loader2 },
+];
+
+// 애니메이션 컴포넌트
+const animationComponents = [
   { name: "Fade", path: "/fade", icon: Sparkles },
   { name: "Slide", path: "/slide", icon: MoveRight },
   { name: "Scale", path: "/scale", icon: Search },
@@ -51,17 +73,6 @@ const animations = [
   { name: "Wiggle", path: "/wiggle", icon: Radio },
   { name: "Flip", path: "/flip", icon: Shuffle },
   { name: "Shake", path: "/shake", icon: SquareActivity },
-];
-
-const components = [
-  {
-    name: "Animated Button",
-    path: "/animated-button",
-    icon: MousePointerClick,
-    badge: "New",
-  },
-  { name: "Activity", path: "/activity", icon: Zap, badge: "React 19.2" },
-  { name: "Spinner", path: "/spinner", icon: Loader2, badge: "Loading" },
 ];
 
 export function AppSidebar() {
@@ -102,25 +113,25 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
 
-        {/* Animation Templates */}
+        {/* Shadcn UI 기본 컴포넌트 */}
         <SidebarGroup>
           <Collapsible defaultOpen className="group/collapsible">
             <SidebarGroupLabel asChild>
-              <CollapsibleTrigger>
-                <Sparkles />
-                <span>애니메이션 템플릿</span>
-                <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
+              <CollapsibleTrigger className="flex items-center gap-2">
+                <Component />
+                <span>Shadcn UI</span>
+                <ChevronDown className="transition-transform group-data-[state=open]/collapsible:rotate-180" />
               </CollapsibleTrigger>
             </SidebarGroupLabel>
             <CollapsibleContent>
               <SidebarGroupContent>
                 <SidebarMenu>
-                  {animations.map((animation) => (
-                    <SidebarMenuItem key={animation.path}>
+                  {shadcnComponents.map((component) => (
+                    <SidebarMenuItem key={component.path}>
                       <SidebarMenuButton asChild>
-                        <Link href={animation.path}>
-                          <animation.icon className="size-4" />
-                          <span>{animation.name}</span>
+                        <Link href={component.path}>
+                          <component.icon className="size-4" />
+                          <span>{component.name}</span>
                         </Link>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
@@ -131,28 +142,95 @@ export function AppSidebar() {
           </Collapsible>
         </SidebarGroup>
 
-        {/* React Components */}
+        {/* Kibo UI 복잡한 컴포넌트 */}
+        {kiboComponents.length > 0 && (
+          <SidebarGroup>
+            <Collapsible defaultOpen className="group/collapsible">
+              <SidebarGroupLabel asChild>
+                <CollapsibleTrigger className="flex items-center gap-2">
+                  <Boxes />
+                  <span>Kibo UI</span>
+                  <ChevronDown className="transition-transform group-data-[state=open]/collapsible:rotate-180" />
+                </CollapsibleTrigger>
+              </SidebarGroupLabel>
+              <CollapsibleContent>
+                <SidebarGroupContent>
+                  <SidebarMenu>
+                    {kiboComponents.map((component) => (
+                      <SidebarMenuItem key={component.path}>
+                        <SidebarMenuButton asChild>
+                          <Link href={component.path}>
+                            <component.icon className="size-4" />
+                            <span>{component.name}</span>
+                            {component.badge && (
+                              <span className="ml-auto text-xs bg-purple-600 text-white px-2 py-0.5 rounded-full">
+                                {component.badge}
+                              </span>
+                            )}
+                          </Link>
+                        </SidebarMenuButton>
+                      </SidebarMenuItem>
+                    ))}
+                  </SidebarMenu>
+                </SidebarGroupContent>
+              </CollapsibleContent>
+            </Collapsible>
+          </SidebarGroup>
+        )}
+
+        {/* 커스텀 구현 컴포넌트 */}
         <SidebarGroup>
           <Collapsible defaultOpen className="group/collapsible">
             <SidebarGroupLabel asChild>
-              <CollapsibleTrigger>
+              <CollapsibleTrigger className="flex items-center gap-2">
                 <Atom />
-                <span>React 컴포넌트</span>
-                <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
+                <span>커스텀 컴포넌트</span>
+                <ChevronDown className="transition-transform group-data-[state=open]/collapsible:rotate-180" />
               </CollapsibleTrigger>
             </SidebarGroupLabel>
             <CollapsibleContent>
               <SidebarGroupContent>
                 <SidebarMenu>
-                  {components.map((component) => (
+                  {customComponents.map((component) => (
                     <SidebarMenuItem key={component.path}>
                       <SidebarMenuButton asChild>
                         <Link href={component.path}>
                           <component.icon className="size-4" />
                           <span>{component.name}</span>
-                          <span className="ml-auto text-xs bg-purple-600 text-white px-2 py-0.5 rounded-full">
-                            {component.badge}
-                          </span>
+                          {component.badge && (
+                            <span className="ml-auto text-xs bg-purple-600 text-white px-2 py-0.5 rounded-full">
+                              {component.badge}
+                            </span>
+                          )}
+                        </Link>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  ))}
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </CollapsibleContent>
+          </Collapsible>
+        </SidebarGroup>
+
+        {/* 애니메이션 */}
+        <SidebarGroup>
+          <Collapsible defaultOpen className="group/collapsible">
+            <SidebarGroupLabel asChild>
+              <CollapsibleTrigger className="flex items-center gap-2">
+                <Sparkles />
+                <span>애니메이션</span>
+                <ChevronDown className="transition-transform group-data-[state=open]/collapsible:rotate-180" />
+              </CollapsibleTrigger>
+            </SidebarGroupLabel>
+            <CollapsibleContent>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  {animationComponents.map((component) => (
+                    <SidebarMenuItem key={component.path}>
+                      <SidebarMenuButton asChild>
+                        <Link href={component.path}>
+                          <component.icon className="size-4" />
+                          <span>{component.name}</span>
                         </Link>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
@@ -168,9 +246,19 @@ export function AppSidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <div className="text-xs text-muted-foreground space-y-1 px-2 py-2">
+              <p className="font-semibold text-foreground mb-2">기술 스택</p>
               <p>✨ Tailwind CSS v4</p>
               <p>⚛️ React 19.2</p>
               <p>⚡ Next.js 16</p>
+              <div className="border-t border-border mt-2 pt-2">
+                <p className="font-semibold text-foreground mb-1">
+                  컴포넌트 구성
+                </p>
+                <p>🎨 Shadcn UI - 기본</p>
+                {kiboComponents.length > 0 && <p>📦 Kibo UI - 고급</p>}
+                <p>🔧 Custom - 직접 구현</p>
+                <p>✨ Animation - 애니메이션</p>
+              </div>
             </div>
           </SidebarMenuItem>
         </SidebarMenu>
