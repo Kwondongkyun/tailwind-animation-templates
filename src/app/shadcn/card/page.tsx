@@ -380,9 +380,7 @@ export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
                       <td className="px-4 py-3 text-sm">카드 헤더 영역</td>
                     </tr>
                     <tr className="border-b">
-                      <td className="px-4 py-3 font-mono text-sm">
-                        CardTitle
-                      </td>
+                      <td className="px-4 py-3 font-mono text-sm">CardTitle</td>
                       <td className="px-4 py-3 text-sm">카드 제목</td>
                     </tr>
                     <tr className="border-b">
@@ -468,9 +466,7 @@ export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
               <Card className="w-full max-w-sm">
                 <CardHeader>
                   <CardTitle>Notifications</CardTitle>
-                  <CardDescription>
-                    You have 3 unread messages.
-                  </CardDescription>
+                  <CardDescription>You have 3 unread messages.</CardDescription>
                   <CardAction>
                     <Button variant="outline" size="sm">
                       Mark all as read
@@ -682,7 +678,9 @@ export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
               <Card className="w-full max-w-sm">
                 <CardHeader>
                   <CardTitle>Recent Activity</CardTitle>
-                  <CardDescription>Your recent account activity</CardDescription>
+                  <CardDescription>
+                    Your recent account activity
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-3">
@@ -691,9 +689,7 @@ export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
                         <Check className="size-4" />
                       </div>
                       <div className="flex-1">
-                        <p className="text-sm font-medium">
-                          Payment received
-                        </p>
+                        <p className="text-sm font-medium">Payment received</p>
                         <p className="text-xs text-muted-foreground">
                           2 hours ago
                         </p>
@@ -761,4 +757,3 @@ export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
     </div>
   );
 }
-

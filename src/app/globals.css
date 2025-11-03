@@ -114,9 +114,9 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-body {
+/* body {
   overflow-y: scroll;
-}
+} */
 
 /* Fade Animations */
 @keyframes fadeIn {
