@@ -10,12 +10,51 @@ import {
 } from "lucide-react";
 import { IconGitBranch } from "@tabler/icons-react";
 import Link from "next/link";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import {
+  oneLight,
+  oneDark,
+} from "react-syntax-highlighter/dist/esm/styles/prism";
+import { useEffect, useState } from "react";
 
 function CodeBlock({ code }: { code: string }) {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    // 다크 모드 감지
+    const checkDarkMode = () => {
+      setIsDark(document.documentElement.classList.contains("dark"));
+    };
+
+    checkDarkMode();
+
+    // 다크 모드 변경 감지
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <pre className="rounded-lg bg-muted p-4 overflow-x-auto">
-      <code className="text-sm">{code}</code>
-    </pre>
+    <div className="rounded-lg overflow-hidden border">
+      <SyntaxHighlighter
+        language="tsx"
+        style={isDark ? oneDark : oneLight}
+        customStyle={{
+          margin: 0,
+          padding: "1rem",
+          fontSize: "0.875rem",
+          fontFamily: "ui-monospace, monospace",
+        }}
+        showLineNumbers={false}
+        wrapLines={true}
+      >
+        {code}
+      </SyntaxHighlighter>
+    </div>
   );
 }
 
@@ -363,7 +402,7 @@ export default function Example() {
             description="asChild prop을 사용하여 Link나 다른 컴포넌트를 버튼처럼 스타일링할 수 있습니다."
             preview={
               <Button variant="outline" asChild>
-                <Link href="/">Go to Dashboard</Link>
+                <Link href="/shadcn/button">Go to Dashboard</Link>
               </Button>
             }
             code={`import Link from "next/link"
