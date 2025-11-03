@@ -46,6 +46,7 @@ import {
 // Shadcn UI 기본 컴포넌트
 const shadcnComponents = [
   { name: "Button", path: "/shadcn/button", icon: MousePointerClick },
+  { name: "Badge", path: "/shadcn/badge", icon: Component },
   { name: "Input", path: "/shadcn/input", icon: Component },
   { name: "Label", path: "/shadcn/label", icon: Component },
   { name: "Card", path: "/shadcn/card", icon: Component },
