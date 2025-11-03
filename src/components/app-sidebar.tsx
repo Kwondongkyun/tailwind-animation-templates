@@ -47,6 +47,7 @@ import {
 const shadcnComponents = [
   { name: "Button", path: "/shadcn/button", icon: MousePointerClick },
   { name: "Input", path: "/shadcn/input", icon: Component },
+  { name: "Label", path: "/shadcn/label", icon: Component },
   { name: "Card", path: "/shadcn/card", icon: Component },
   { name: "Dialog", path: "/shadcn/dialog", icon: Component },
   { name: "Tooltip", path: "/shadcn/tooltip", icon: Component },
