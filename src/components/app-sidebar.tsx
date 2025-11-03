@@ -51,6 +51,7 @@ const shadcnComponents = [
   { name: "Card", path: "/shadcn/card", icon: Component },
   { name: "Dialog", path: "/shadcn/dialog", icon: Component },
   { name: "Tooltip", path: "/shadcn/tooltip", icon: Component },
+  { name: "Select", path: "/shadcn/select", icon: Component },
 ];
 
 // Kibo UI 복잡한 컴포넌트 (추후 추가 예정)
@@ -120,7 +121,7 @@ export function AppSidebar() {
             <SidebarGroupLabel asChild>
               <CollapsibleTrigger className="flex items-center gap-2">
                 <Component />
-                <span>Shadcn UI</span>
+                <span>기본 컴포넌트(Shadcn UI)</span>
                 <ChevronDown className="transition-transform group-data-[state=open]/collapsible:rotate-180" />
               </CollapsibleTrigger>
             </SidebarGroupLabel>
@@ -150,7 +151,7 @@ export function AppSidebar() {
               <SidebarGroupLabel asChild>
                 <CollapsibleTrigger className="flex items-center gap-2">
                   <Boxes />
-                  <span>Kibo UI</span>
+                  <span>고급 컴포넌트(Kibo UI)</span>
                   <ChevronDown className="transition-transform group-data-[state=open]/collapsible:rotate-180" />
                 </CollapsibleTrigger>
               </SidebarGroupLabel>
@@ -185,7 +186,7 @@ export function AppSidebar() {
             <SidebarGroupLabel asChild>
               <CollapsibleTrigger className="flex items-center gap-2">
                 <Atom />
-                <span>커스텀 컴포넌트</span>
+                <span>커스텀 컴포넌트(Custom)</span>
                 <ChevronDown className="transition-transform group-data-[state=open]/collapsible:rotate-180" />
               </CollapsibleTrigger>
             </SidebarGroupLabel>
@@ -219,7 +220,7 @@ export function AppSidebar() {
             <SidebarGroupLabel asChild>
               <CollapsibleTrigger className="flex items-center gap-2">
                 <Sparkles />
-                <span>애니메이션</span>
+                <span>애니메이션(Animation)</span>
                 <ChevronDown className="transition-transform group-data-[state=open]/collapsible:rotate-180" />
               </CollapsibleTrigger>
             </SidebarGroupLabel>
