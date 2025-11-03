@@ -138,6 +138,85 @@ export default function Example() {
 }`}
           />
 
+          {/* Installation */}
+          <div className="space-y-4">
+            <h2 className="text-2xl font-bold">Installation</h2>
+            <p className="text-muted-foreground">
+              CLI를 사용하여 버튼 컴포넌트를 프로젝트에 설치합니다.
+            </p>
+            <Tabs defaultValue="cli" className="w-full">
+              <TabsList>
+                <TabsTrigger value="cli">CLI</TabsTrigger>
+                <TabsTrigger value="manual">Manual</TabsTrigger>
+              </TabsList>
+              <TabsContent value="cli" className="mt-4">
+                <CodeBlock code={`npx shadcn@latest add button`} />
+              </TabsContent>
+              <TabsContent value="manual" className="mt-4">
+                <div className="space-y-4">
+                  <p className="text-sm text-muted-foreground">
+                    수동으로 컴포넌트를 복사하여 프로젝트에 추가할 수 있습니다.
+                  </p>
+                  <CodeBlock
+                    code={`// components/ui/button.tsx
+import * as React from "react"
+import { Slot } from "@radix-ui/react-slot"
+import { cva, type VariantProps } from "class-variance-authority"
+import { cn } from "@/lib/utils"
+
+const buttonVariants = cva(
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50",
+  {
+    variants: {
+      variant: {
+        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        destructive: "bg-destructive text-white hover:bg-destructive/90",
+        outline: "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
+        link: "text-primary underline-offset-4 hover:underline",
+      },
+      size: {
+        default: "h-9 px-4 py-2",
+        sm: "h-8 rounded-md px-3",
+        lg: "h-10 rounded-md px-6",
+        icon: "size-9",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  }
+)
+
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean
+}
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : "button"
+    return (
+      <Comp
+        className={cn(buttonVariants({ variant, size, className }))}
+        ref={ref}
+        {...props}
+      />
+    )
+  }
+)
+Button.displayName = "Button"
+
+export { Button, buttonVariants }`}
+                  />
+                </div>
+              </TabsContent>
+            </Tabs>
+          </div>
+
           {/* API Reference */}
           <div className="space-y-4">
             <h2 className="text-2xl font-bold">API Reference</h2>
