@@ -45,7 +45,7 @@ import {
 
 // Shadcn UI 기본 컴포넌트
 const shadcnComponents = [
-  { name: "Button", path: "/shadcn/button", icon: MousePointerClick },
+  { name: "Button", path: "/shadcn/button", icon: Component },
   { name: "Badge", path: "/shadcn/badge", icon: Component },
   { name: "Input", path: "/shadcn/input", icon: Component },
   { name: "Label", path: "/shadcn/label", icon: Component },
@@ -120,9 +120,8 @@ export function AppSidebar() {
         <SidebarGroup>
           <Collapsible defaultOpen className="group/collapsible">
             <SidebarGroupLabel asChild>
-              <CollapsibleTrigger className="flex items-center gap-2">
-                <Component />
-                <span>기본 컴포넌트(Shadcn UI)</span>
+              <CollapsibleTrigger className="flex items-center justify-between w-full">
+                <span className="text-sm">기본 컴포넌트(Shadcn UI)</span>
                 <ChevronDown className="transition-transform group-data-[state=open]/collapsible:rotate-180" />
               </CollapsibleTrigger>
             </SidebarGroupLabel>
@@ -150,9 +149,8 @@ export function AppSidebar() {
           <SidebarGroup>
             <Collapsible defaultOpen className="group/collapsible">
               <SidebarGroupLabel asChild>
-                <CollapsibleTrigger className="flex items-center gap-2">
-                  <Boxes />
-                  <span>고급 컴포넌트(Kibo UI)</span>
+                <CollapsibleTrigger className="flex items-center justify-between w-full">
+                  <span className="text-sm">고급 컴포넌트(Kibo UI)</span>
                   <ChevronDown className="transition-transform group-data-[state=open]/collapsible:rotate-180" />
                 </CollapsibleTrigger>
               </SidebarGroupLabel>
@@ -185,9 +183,8 @@ export function AppSidebar() {
         <SidebarGroup>
           <Collapsible defaultOpen className="group/collapsible">
             <SidebarGroupLabel asChild>
-              <CollapsibleTrigger className="flex items-center gap-2">
-                <Atom />
-                <span>커스텀 컴포넌트(Custom)</span>
+              <CollapsibleTrigger className="flex items-center justify-between w-full">
+                <span className="text-sm">커스텀 컴포넌트(Custom)</span>
                 <ChevronDown className="transition-transform group-data-[state=open]/collapsible:rotate-180" />
               </CollapsibleTrigger>
             </SidebarGroupLabel>
@@ -219,9 +216,8 @@ export function AppSidebar() {
         <SidebarGroup>
           <Collapsible defaultOpen className="group/collapsible">
             <SidebarGroupLabel asChild>
-              <CollapsibleTrigger className="flex items-center gap-2">
-                <Sparkles />
-                <span>애니메이션(Animation)</span>
+              <CollapsibleTrigger className="flex items-center justify-between w-full">
+                <span className="text-sm">애니메이션(Animation)</span>
                 <ChevronDown className="transition-transform group-data-[state=open]/collapsible:rotate-180" />
               </CollapsibleTrigger>
             </SidebarGroupLabel>
