@@ -20,6 +20,7 @@ import {
   Boxes,
   Component,
   Palette,
+  Layers,
 } from "lucide-react";
 
 import {
@@ -56,7 +57,13 @@ const shadcnComponents = [
 ];
 
 // Kibo UI 복잡한 컴포넌트 (추후 추가 예정)
-const kiboComponents: any[] = [];
+const kiboComponents = [
+  {
+    name: "Dialog Stack",
+    path: "/kibo/dialog-stack",
+    icon: Layers,
+  },
+];
 
 // 커스텀 구현 컴포넌트
 const customComponents = [
@@ -163,11 +170,6 @@ export function AppSidebar() {
                           <Link href={component.path}>
                             <component.icon className="size-4" />
                             <span>{component.name}</span>
-                            {component.badge && (
-                              <span className="ml-auto text-xs bg-purple-600 text-white px-2 py-0.5 rounded-full">
-                                {component.badge}
-                              </span>
-                            )}
                           </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
