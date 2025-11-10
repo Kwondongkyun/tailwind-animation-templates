@@ -54,6 +54,7 @@ const shadcnComponents = [
   { name: "Dialog", path: "/shadcn/dialog", icon: Component },
   { name: "Tooltip", path: "/shadcn/tooltip", icon: Component },
   { name: "Select", path: "/shadcn/select", icon: Component },
+  { name: "Separator", path: "/shadcn/separator", icon: Component },
 ];
 
 // Kibo UI 복잡한 컴포넌트 (추후 추가 예정)
