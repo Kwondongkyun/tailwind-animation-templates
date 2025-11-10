@@ -48,9 +48,10 @@ import {
 const shadcnComponents = [
   { name: "Button", path: "/shadcn/button", icon: Component },
   { name: "Badge", path: "/shadcn/badge", icon: Component },
+  { name: "Card", path: "/shadcn/card", icon: Component },
+  { name: "Checkbox", path: "/shadcn/checkbox", icon: Component },
   { name: "Input", path: "/shadcn/input", icon: Component },
   { name: "Label", path: "/shadcn/label", icon: Component },
-  { name: "Card", path: "/shadcn/card", icon: Component },
   { name: "Dialog", path: "/shadcn/dialog", icon: Component },
   { name: "Tooltip", path: "/shadcn/tooltip", icon: Component },
   { name: "Select", path: "/shadcn/select", icon: Component },
