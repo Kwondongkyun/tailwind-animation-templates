@@ -280,7 +280,7 @@ export default function Home() {
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="flex flex-wrap gap-2">
-                      <Link href="/fade">
+                      <Link href="/animation/fade">
                         <Badge
                           variant="secondary"
                           className="cursor-pointer hover:bg-secondary/80"
@@ -289,7 +289,7 @@ export default function Home() {
                           Fade
                         </Badge>
                       </Link>
-                      <Link href="/slide">
+                      <Link href="/animation/slide">
                         <Badge
                           variant="secondary"
                           className="cursor-pointer hover:bg-secondary/80"
@@ -298,7 +298,7 @@ export default function Home() {
                           Slide
                         </Badge>
                       </Link>
-                      <Link href="/scale">
+                      <Link href="/animation/scale">
                         <Badge
                           variant="secondary"
                           className="cursor-pointer hover:bg-secondary/80"
@@ -307,7 +307,7 @@ export default function Home() {
                           Scale
                         </Badge>
                       </Link>
-                      <Link href="/rotate">
+                      <Link href="/animation/rotate">
                         <Badge
                           variant="secondary"
                           className="cursor-pointer hover:bg-secondary/80"
@@ -316,7 +316,7 @@ export default function Home() {
                           Rotate
                         </Badge>
                       </Link>
-                      <Link href="/bounce">
+                      <Link href="/animation/bounce">
                         <Badge
                           variant="secondary"
                           className="cursor-pointer hover:bg-secondary/80"
@@ -325,7 +325,7 @@ export default function Home() {
                           Bounce
                         </Badge>
                       </Link>
-                      <Link href="/pulse">
+                      <Link href="/animation/pulse">
                         <Badge
                           variant="secondary"
                           className="cursor-pointer hover:bg-secondary/80"
@@ -350,7 +350,7 @@ export default function Home() {
                       </li>
                     </ul>
                     <Button variant="outline" className="w-full" asChild>
-                      <Link href="/fade">
+                      <Link href="/animation/fade">
                         둘러보기
                         <ArrowRight className="size-4 ml-2" />
                       </Link>
@@ -376,7 +376,7 @@ export default function Home() {
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="flex flex-wrap gap-2">
-                      <Link href="/activity">
+                      <Link href="/animation/activity">
                         <Badge
                           variant="secondary"
                           className="cursor-pointer hover:bg-secondary/80"
@@ -385,7 +385,7 @@ export default function Home() {
                           Activity
                         </Badge>
                       </Link>
-                      <Link href="/spinner">
+                      <Link href="/animation/spinner">
                         <Badge
                           variant="secondary"
                           className="cursor-pointer hover:bg-secondary/80"
@@ -410,7 +410,7 @@ export default function Home() {
                       </li>
                     </ul>
                     <Button variant="outline" className="w-full" asChild>
-                      <Link href="/activity">
+                      <Link href="/animation/activity">
                         둘러보기
                         <ArrowRight className="size-4 ml-2" />
                       </Link>
@@ -546,7 +546,7 @@ export default function Home() {
                 </Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link href="/fade">
+                <Link href="/animation/fade">
                   <Sparkles className="size-4 mr-2" />
                   애니메이션 보기
                 </Link>

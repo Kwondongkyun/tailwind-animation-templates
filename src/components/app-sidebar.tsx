@@ -69,22 +69,27 @@ const kiboComponents = [
 
 // 커스텀 구현 컴포넌트
 const customComponents = [
-  { name: "Activity", path: "/activity", icon: Zap, badge: "React 19.2" },
-  { name: "Spinner", path: "/spinner", icon: Loader2 },
+  {
+    name: "Activity",
+    path: "/animation/activity",
+    icon: Zap,
+    badge: "React 19.2",
+  },
+  { name: "Spinner", path: "/animation/spinner", icon: Loader2 },
 ];
 
 // 애니메이션 컴포넌트
 const animationComponents = [
-  { name: "Fade", path: "/fade", icon: Sparkles },
-  { name: "Slide", path: "/slide", icon: MoveRight },
-  { name: "Scale", path: "/scale", icon: Search },
-  { name: "Rotate", path: "/rotate", icon: RotateCw },
-  { name: "Bounce", path: "/bounce", icon: Zap },
-  { name: "Spin", path: "/spin", icon: Repeat },
-  { name: "Pulse", path: "/pulse", icon: Heart },
-  { name: "Wiggle", path: "/wiggle", icon: Radio },
-  { name: "Flip", path: "/flip", icon: Shuffle },
-  { name: "Shake", path: "/shake", icon: SquareActivity },
+  { name: "Fade", path: "/animation/fade", icon: Sparkles },
+  { name: "Slide", path: "/animation/slide", icon: MoveRight },
+  { name: "Scale", path: "/animation/scale", icon: Search },
+  { name: "Rotate", path: "/animation/rotate", icon: RotateCw },
+  { name: "Bounce", path: "/animation/bounce", icon: Zap },
+  { name: "Spin", path: "/animation/spin", icon: Repeat },
+  { name: "Pulse", path: "/animation/pulse", icon: Heart },
+  { name: "Wiggle", path: "/animation/wiggle", icon: Radio },
+  { name: "Flip", path: "/animation/flip", icon: Shuffle },
+  { name: "Shake", path: "/animation/shake", icon: SquareActivity },
 ];
 
 export function AppSidebar() {
