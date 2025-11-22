@@ -1,13 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import {
-  oneLight,
-  oneDark,
-} from "react-syntax-highlighter/dist/esm/styles/prism";
-
+import { useState } from "react";
 import { PageHeader } from "@/components/page-header";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -32,11 +25,11 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-
 import { Checkbox } from "@/components/ui/checkbox";
+import { CodeBlock, ExampleSection } from "@/components/docs";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Code, Eye, ExternalLink } from "lucide-react";
-import { Separator } from "@/components/ui/separator";
+import { ExternalLink } from "lucide-react";
+import Link from "next/link";
 
 const sixDialogStackCode = String.raw`"use client";
 
@@ -54,115 +47,101 @@ import {
   DialogStackTrigger,
 } from "@/components/kibo-ui/dialog-stack";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Checkbox } from "@/components/ui/checkbox";
 
-const Example = () => (
-  <DialogStack>
-    <DialogStackTrigger asChild>
-      <Button variant="outline">Show me</Button>
-    </DialogStackTrigger>
-    <DialogStackOverlay />
+const Steps = [
+  {
+    title: "계정 생성",
+    subtitle: "고객 온보딩 1/6",
+    badge: "Profile",
+    description: "기본 고객 정보를 수집하고 역할을 지정합니다.",
+    checklist: ["이메일 인증", "회사 선택", "역할 지정"],
+  },
+  {
+    title: "브랜드 설정",
+    subtitle: "고객 온보딩 2/6",
+    badge: "Brand",
+    description: "로고와 브랜드 컬러를 업로드해 제품 경험을 통일합니다.",
+    checklist: ["로고 추가", "브랜드 컬러 선택", "폰트 적용"],
+  },
+  {
+    title: "팀 초대",
+    subtitle: "고객 온보딩 3/6",
+    badge: "Team",
+    description: "협업할 팀원을 초대하고 권한을 설정합니다.",
+    checklist: ["팀원 초대", "권한 구성", "알림 채널 선택"],
+  },
+  {
+    title: "프로젝트 연결",
+    subtitle: "고객 온보딩 4/6",
+    badge: "Projects",
+    description: "핵심 프로젝트를 연결하고 대시보드를 활성화합니다.",
+    checklist: ["프로젝트 생성", "자동 수집 활성화", "가져오기 테스트"],
+  },
+  {
+    title: "자동화 구성",
+    subtitle: "고객 온보딩 5/6",
+    badge: "Automation",
+    description: "규칙을 설정하고 반복 태스크를 자동화합니다.",
+    checklist: ["규칙 템플릿 선택", "슬랙 채널 연결", "테스트 실행"],
+  },
+  {
+    title: "출시 준비",
+    subtitle: "고객 온보딩 6/6",
+    badge: "Launch",
+    description: "최종 검토 후 워크플로우를 운영 환경에 배포합니다.",
+    checklist: ["준비 상태 확인", "팀 공지 작성", "런치 체크리스트 완료"],
+  },
+];
 
-    <DialogStackBody>
-      <DialogStackContent>
-        <DialogStackHeader>
-          <DialogStackTitle>I'm the first dialog</DialogStackTitle>
-          <DialogStackDescription>
-            With a fancy description
-          </DialogStackDescription>
-        </DialogStackHeader>
-        <DialogStackFooter className="justify-end">
-          <DialogStackNext asChild>
-            <Button variant="outline">Next</Button>
-          </DialogStackNext>
-        </DialogStackFooter>
-      </DialogStackContent>
+function DialogStackWithSixDialogs() {
+  return (
+    <DialogStack>
+      <DialogStackTrigger asChild>
+        <Button variant="outline">프로젝트 킥오프</Button>
+      </DialogStackTrigger>
+      <DialogStackOverlay />
+      <DialogStackBody>
+        {Steps.map((step, index) => (
+          <DialogStackContent key={index}>
+            <DialogStackHeader>
+              <div className="flex items-center gap-2">
+                <DialogStackTitle>{step.title}</DialogStackTitle>
+                <Badge variant="secondary">{step.badge}</Badge>
+              </div>
+              <DialogStackDescription>
+                {step.description}
+              </DialogStackDescription>
+            </DialogStackHeader>
+            <div className="flex flex-col gap-2 mt-4">
+              {step.checklist.map((item) => (
+                <div key={item} className="flex items-center gap-2">
+                  <Checkbox />
+                  <span className="text-sm">{item}</span>
+                </div>
+              ))}
+            </div>
+            <DialogStackFooter className="justify-end">
+              {index > 0 && (
+                <DialogStackPrevious asChild>
+                  <Button variant="outline">이전</Button>
+                </DialogStackPrevious>
+              )}
+              {index < Steps.length - 1 && (
+                <DialogStackNext asChild>
+                  <Button variant="outline">다음</Button>
+                </DialogStackNext>
+              )}
+            </DialogStackFooter>
+          </DialogStackContent>
+        ))}
+      </DialogStackBody>
+    </DialogStack>
+  );
+}
 
-      <DialogStackContent>
-        <DialogStackHeader>
-          <DialogStackTitle>I'm the second dialog</DialogStackTitle>
-          <DialogStackDescription>
-            With a fancy description
-          </DialogStackDescription>
-        </DialogStackHeader>
-        <DialogStackFooter className="justify-between">
-          <DialogStackPrevious asChild>
-            <Button variant="outline">Previous</Button>
-          </DialogStackPrevious>
-          <DialogStackNext asChild>
-            <Button variant="outline">Next</Button>
-          </DialogStackNext>
-        </DialogStackFooter>
-      </DialogStackContent>
-
-      <DialogStackContent>
-        <DialogStackHeader>
-          <DialogStackTitle>I'm the third dialog</DialogStackTitle>
-          <DialogStackDescription>
-            With a fancy description
-          </DialogStackDescription>
-        </DialogStackHeader>
-        <DialogStackFooter className="justify-between">
-          <DialogStackPrevious asChild>
-            <Button variant="outline">Previous</Button>
-          </DialogStackPrevious>
-          <DialogStackNext asChild>
-            <Button variant="outline">Next</Button>
-          </DialogStackNext>
-        </DialogStackFooter>
-      </DialogStackContent>
-
-      <DialogStackContent>
-        <DialogStackHeader>
-          <DialogStackTitle>I'm the fourth dialog</DialogStackTitle>
-          <DialogStackDescription>
-            With a fancy description
-          </DialogStackDescription>
-        </DialogStackHeader>
-        <DialogStackFooter className="justify-between">
-          <DialogStackPrevious asChild>
-            <Button variant="outline">Previous</Button>
-          </DialogStackPrevious>
-          <DialogStackNext asChild>
-            <Button variant="outline">Next</Button>
-          </DialogStackNext>
-        </DialogStackFooter>
-      </DialogStackContent>
-
-      <DialogStackContent>
-        <DialogStackHeader>
-          <DialogStackTitle>I'm the fifth dialog</DialogStackTitle>
-          <DialogStackDescription>
-            With a fancy description
-          </DialogStackDescription>
-        </DialogStackHeader>
-        <DialogStackFooter className="justify-between">
-          <DialogStackPrevious asChild>
-            <Button variant="outline">Previous</Button>
-          </DialogStackPrevious>
-          <DialogStackNext asChild>
-            <Button variant="outline">Next</Button>
-          </DialogStackNext>
-        </DialogStackFooter>
-      </DialogStackContent>
-
-      <DialogStackContent>
-        <DialogStackHeader>
-          <DialogStackTitle>I'm the sixth dialog</DialogStackTitle>
-          <DialogStackDescription>
-            With a fancy description
-          </DialogStackDescription>
-        </DialogStackHeader>
-        <DialogStackFooter className="justify-start">
-          <DialogStackPrevious asChild>
-            <Button variant="outline">Previous</Button>
-          </DialogStackPrevious>
-        </DialogStackFooter>
-      </DialogStackContent>
-    </DialogStackBody>
-  </DialogStack>
-);
-
-export default Example;
+export default DialogStackWithSixDialogs;
 `;
 
 const clickableNavigationCode = String.raw`"use client";
@@ -181,120 +160,108 @@ import {
   DialogStackTrigger,
 } from "@/components/kibo-ui/dialog-stack";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Checkbox } from "@/components/ui/checkbox";
 
-const Example = () => (
-  <DialogStack clickable> <!-- clickable 속성을 추가하여 네비게이션 가능하게 함 -->
-    <DialogStackTrigger asChild>
-      <Button variant="outline">Show me</Button>
-    </DialogStackTrigger>
-    <DialogStackOverlay />
+const Steps = [
+  {
+    title: "계정 생성",
+    subtitle: "고객 온보딩 1/6",
+    badge: "Profile",
+    description: "기본 고객 정보를 수집하고 역할을 지정합니다.",
+    checklist: ["이메일 인증", "회사 선택", "역할 지정"],
+  },
+  {
+    title: "브랜드 설정",
+    subtitle: "고객 온보딩 2/6",
+    badge: "Brand",
+    description: "로고와 브랜드 컬러를 업로드해 제품 경험을 통일합니다.",
+    checklist: ["로고 추가", "브랜드 컬러 선택", "폰트 적용"],
+  },
+  {
+    title: "팀 초대",
+    subtitle: "고객 온보딩 3/6",
+    badge: "Team",
+    description: "협업할 팀원을 초대하고 권한을 설정합니다.",
+    checklist: ["팀원 초대", "권한 구성", "알림 채널 선택"],
+  },
+  {
+    title: "프로젝트 연결",
+    subtitle: "고객 온보딩 4/6",
+    badge: "Projects",
+    description: "핵심 프로젝트를 연결하고 대시보드를 활성화합니다.",
+    checklist: ["프로젝트 생성", "자동 수집 활성화", "가져오기 테스트"],
+  },
+  {
+    title: "자동화 구성",
+    subtitle: "고객 온보딩 5/6",
+    badge: "Automation",
+    description: "규칙을 설정하고 반복 태스크를 자동화합니다.",
+    checklist: ["규칙 템플릿 선택", "슬랙 채널 연결", "테스트 실행"],
+  },
+  {
+    title: "출시 준비",
+    subtitle: "고객 온보딩 6/6",
+    badge: "Launch",
+    description: "최종 검토 후 워크플로우를 운영 환경에 배포합니다.",
+    checklist: ["준비 상태 확인", "팀 공지 작성", "런치 체크리스트 완료"],
+  },
+];
 
-    <DialogStackBody>
-      <DialogStackContent>
-        <DialogStackHeader>
-          <DialogStackTitle>I'm the first dialog</DialogStackTitle>
-          <DialogStackDescription>
-            With a fancy description
-          </DialogStackDescription>
-        </DialogStackHeader>
-        <DialogStackFooter className="justify-end">
-          <DialogStackNext asChild>
-            <Button variant="outline">Next</Button>
-          </DialogStackNext>
-        </DialogStackFooter>
-      </DialogStackContent>
+function DialogStackWithNavigation() {
+  return (
+    <DialogStack clickable>
+      <DialogStackTrigger asChild>
+        <Button variant="outline">프로젝트 킥오프 + 네비게이션</Button>
+      </DialogStackTrigger>
+      <DialogStackOverlay />
+      <DialogStackBody>
+        {Steps.map((step, index) => (
+          <DialogStackContent key={index}>
+            <DialogStackHeader>
+              <div className="flex items-center gap-2">
+                <DialogStackTitle>{step.title}</DialogStackTitle>
+                <Badge variant="secondary">{step.badge}</Badge>
+              </div>
+              <DialogStackDescription>
+                {step.description}
+              </DialogStackDescription>
+            </DialogStackHeader>
+            <div className="flex flex-col gap-2 mt-4">
+              {step.checklist.map((item) => (
+                <div key={item} className="flex items-center gap-2">
+                  <Checkbox />
+                  <span className="text-sm">{item}</span>
+                </div>
+              ))}
+            </div>
+            <DialogStackFooter className="justify-end">
+              {index > 0 && (
+                <DialogStackPrevious asChild>
+                  <Button variant="outline">이전</Button>
+                </DialogStackPrevious>
+              )}
+              {index < Steps.length - 1 && (
+                <DialogStackNext asChild>
+                  <Button variant="outline">다음</Button>
+                </DialogStackNext>
+              )}
+            </DialogStackFooter>
+          </DialogStackContent>
+        ))}
+      </DialogStackBody>
+    </DialogStack>
+  );
+}
 
-      <DialogStackContent>
-        <DialogStackHeader>
-          <DialogStackTitle>I'm the second dialog</DialogStackTitle>
-          <DialogStackDescription>
-            With a fancy description
-          </DialogStackDescription>
-        </DialogStackHeader>
-        <DialogStackFooter className="justify-between">
-          <DialogStackPrevious asChild>
-            <Button variant="outline">Previous</Button>
-          </DialogStackPrevious>
-          <DialogStackNext asChild>
-            <Button variant="outline">Next</Button>
-          </DialogStackNext>
-        </DialogStackFooter>
-      </DialogStackContent>
-
-      <DialogStackContent>
-        <DialogStackHeader>
-          <DialogStackTitle>I'm the third dialog</DialogStackTitle>
-          <DialogStackDescription>
-            With a fancy description
-          </DialogStackDescription>
-        </DialogStackHeader>
-        <DialogStackFooter className="justify-between">
-          <DialogStackPrevious asChild>
-            <Button variant="outline">Previous</Button>
-          </DialogStackPrevious>
-          <DialogStackNext asChild>
-            <Button variant="outline">Next</Button>
-          </DialogStackNext>
-        </DialogStackFooter>
-      </DialogStackContent>
-
-      <DialogStackContent>
-        <DialogStackHeader>
-          <DialogStackTitle>I'm the fourth dialog</DialogStackTitle>
-          <DialogStackDescription>
-            With a fancy description
-          </DialogStackDescription>
-        </DialogStackHeader>
-        <DialogStackFooter className="justify-between">
-          <DialogStackPrevious asChild>
-            <Button variant="outline">Previous</Button>
-          </DialogStackPrevious>
-          <DialogStackNext asChild>
-            <Button variant="outline">Next</Button>
-          </DialogStackNext>
-        </DialogStackFooter>
-      </DialogStackContent>
-
-      <DialogStackContent>
-        <DialogStackHeader>
-          <DialogStackTitle>I'm the fifth dialog</DialogStackTitle>
-          <DialogStackDescription>
-            With a fancy description
-          </DialogStackDescription>
-        </DialogStackHeader>
-        <DialogStackFooter className="justify-between">
-          <DialogStackPrevious asChild>
-            <Button variant="outline">Previous</Button>
-          </DialogStackPrevious>
-          <DialogStackNext asChild>
-            <Button variant="outline">Next</Button>
-          </DialogStackNext>
-        </DialogStackFooter>
-      </DialogStackContent>
-
-      <DialogStackContent>
-        <DialogStackHeader>
-          <DialogStackTitle>I'm the sixth dialog</DialogStackTitle>
-          <DialogStackDescription>
-            With a fancy description
-          </DialogStackDescription>
-        </DialogStackHeader>
-        <DialogStackFooter className="justify-start">
-          <DialogStackPrevious asChild>
-            <Button variant="outline">Previous</Button>
-          </DialogStackPrevious>
-        </DialogStackFooter>
-      </DialogStackContent>
-    </DialogStackBody>
-  </DialogStack>
-);
-
-export default Example;
+export default DialogStackWithNavigation;
 `;
 
-const controlledDialogStackCode = String.raw`import { useState } from "react"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+const controlledDialogStackCode = String.raw`"use client";
+
+import { useState } from "react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -302,9 +269,9 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog"
+} from "@/components/ui/dialog";
 
-const steps = [
+const controlledSteps = [
   {
     title: "티켓 triage",
     subtitle: "긴급도 평가 및 담당자 배정",
@@ -323,35 +290,35 @@ const steps = [
     short: "Follow-up",
     description: "고객에게 진행 상황을 안내하고 후속 태스크를 예약합니다.",
   },
-]
+];
 
-export function ControlledDialogStackDemo() {
-  const [open, setOpen] = useState(false)
-  const [stack, setStack] = useState<number[]>([])
-  const activeIndex = stack[stack.length - 1] ?? 0
+function ControlledDialogStackDemo() {
+  const [open, setOpen] = useState(false);
+  const [stack, setStack] = useState<number[]>([]);
+  const activeIndex = stack[stack.length - 1] ?? 0;
 
   const handleOpen = () => {
-    setStack([0])
-    setOpen(true)
-  }
+    setStack([0]);
+    setOpen(true);
+  };
 
   const handleBack = () => {
     if (stack.length <= 1) {
-      setOpen(false)
-      setStack([])
-      return
+      setOpen(false);
+      setStack([]);
+      return;
     }
-    setStack((prev) => prev.slice(0, -1))
-  }
+    setStack((prev) => prev.slice(0, -1));
+  };
 
   const handleAdvance = () => {
-    if (activeIndex >= steps.length - 1) {
-      setOpen(false)
-      setStack([])
-      return
+    if (activeIndex >= controlledSteps.length - 1) {
+      setOpen(false);
+      setStack([]);
+      return;
     }
-    setStack((prev) => [...prev, activeIndex + 1])
-  }
+    setStack((prev) => [...prev, activeIndex + 1]);
+  };
 
   return (
     <div className="flex flex-col items-start gap-3">
@@ -364,15 +331,18 @@ export function ControlledDialogStackDemo() {
       <Dialog
         open={open}
         onOpenChange={(value) => {
-          setOpen(value)
-          if (!value) setStack([])
+          setOpen(value);
+          if (!value) setStack([]);
         }}
       >
         <DialogContent className="sm:max-w-[520px] space-y-6">
           <DialogHeader>
-            <DialogTitle>{steps[activeIndex]?.title ?? "완료"}</DialogTitle>
+            <DialogTitle>
+              {controlledSteps[activeIndex]?.title ?? "완료"}
+            </DialogTitle>
             <DialogDescription>
-              {steps[activeIndex]?.subtitle ?? "모든 단계를 완료했습니다."}
+              {controlledSteps[activeIndex]?.subtitle ??
+                "모든 단계를 완료했습니다."}
             </DialogDescription>
           </DialogHeader>
           <div className="space-y-4">
@@ -382,12 +352,12 @@ export function ControlledDialogStackDemo() {
                   key={\`\${index}-\${depth}\`}
                   variant={depth === stack.length - 1 ? "default" : "outline"}
                 >
-                  {\`\${depth + 1}단계 · \${steps[index].short}\`}
+                  {\`\${depth + 1}단계 · \${controlledSteps[index].short}\`}
                 </Badge>
               ))}
             </div>
             <div className="rounded-lg border bg-muted/20 p-4 text-sm leading-6">
-              {steps[activeIndex]?.description}
+              {controlledSteps[activeIndex]?.description}
             </div>
           </div>
           <DialogFooter className="flex w-full items-center justify-between">
@@ -395,107 +365,17 @@ export function ControlledDialogStackDemo() {
               {stack.length <= 1 ? "닫기" : "이전"}
             </Button>
             <Button onClick={handleAdvance}>
-              {activeIndex >= steps.length - 1 ? "완료" : "다음 푸시"}
+              {activeIndex >= controlledSteps.length - 1 ? "완료" : "다음 푸시"}
             </Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
     </div>
-  )
-}`;
-
-function CodeBlock({ code }: { code: string }) {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const checkDarkMode = () => {
-      setIsDark(document.documentElement.classList.contains("dark"));
-    };
-
-    checkDarkMode();
-
-    const observer = new MutationObserver(checkDarkMode);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div className="overflow-hidden rounded-lg border">
-      <SyntaxHighlighter
-        language="tsx"
-        style={isDark ? oneDark : oneLight}
-        customStyle={{
-          margin: 0,
-          padding: "1rem",
-          fontSize: "0.875rem",
-          fontFamily: "ui-monospace, monospace",
-        }}
-        showLineNumbers={false}
-        wrapLines
-      >
-        {code}
-      </SyntaxHighlighter>
-    </div>
   );
 }
 
-function ExampleSection({
-  title,
-  titleLink,
-  description,
-  preview,
-  code,
-}: {
-  title: string;
-  titleLink?: string;
-  description?: string;
-  preview: React.ReactNode;
-  code: string;
-}) {
-  return (
-    <div className="space-y-4">
-      <div>
-        <h2 className="mb-2 text-2xl font-bold">
-          {titleLink ? (
-            <Link
-              href={titleLink}
-              className="inline-flex items-center gap-2 underline-offset-4 hover:text-primary hover:underline"
-            >
-              {title}
-              <ExternalLink className="size-5" />
-            </Link>
-          ) : (
-            title
-          )}
-        </h2>
-        {description && <p className="text-muted-foreground">{description}</p>}
-      </div>
-      <Tabs defaultValue="preview" className="w-full">
-        <TabsList className="flex items-center gap-1">
-          <TabsTrigger value="preview">
-            <Eye className="size-4" /> Preview
-          </TabsTrigger>
-          <Separator orientation="vertical" />
-          <TabsTrigger value="code">
-            <Code className="size-4" /> Code
-          </TabsTrigger>
-        </TabsList>
-        <TabsContent value="preview" className="mt-4">
-          <div className="flex min-h-[220px] items-center justify-center rounded-lg border bg-background p-8">
-            {preview}
-          </div>
-        </TabsContent>
-        <TabsContent value="code" className="mt-4">
-          <CodeBlock code={code} />
-        </TabsContent>
-      </Tabs>
-    </div>
-  );
-}
+export default ControlledDialogStackDemo;
+`;
 
 // 예시
 const Steps = [
@@ -558,18 +438,18 @@ function DialogStackWithSixDialogs() {
                 <DialogStackTitle>{step.title}</DialogStackTitle>
                 <Badge variant="secondary">{step.badge}</Badge>
               </div>
-              <DialogStackDescription className="flex flex-col gap-2">
-                <p>{step.description}</p>
-                <div className="flex flex-col gap-2">
-                  {step.checklist.map((item) => (
-                    <div key={item} className="flex items-center gap-2">
-                      <Checkbox />
-                      <p>{item}</p>
-                    </div>
-                  ))}
-                </div>
+              <DialogStackDescription>
+                {step.description}
               </DialogStackDescription>
             </DialogStackHeader>
+            <div className="flex flex-col gap-2 mt-4">
+              {step.checklist.map((item) => (
+                <div key={item} className="flex items-center gap-2">
+                  <Checkbox />
+                  <span className="text-sm">{item}</span>
+                </div>
+              ))}
+            </div>
             <DialogStackFooter className="justify-end">
               {index > 0 && (
                 <DialogStackPrevious asChild>
@@ -604,18 +484,18 @@ function DialogStackWithNavigation() {
                 <DialogStackTitle>{step.title}</DialogStackTitle>
                 <Badge variant="secondary">{step.badge}</Badge>
               </div>
-              <DialogStackDescription className="flex flex-col gap-2">
-                <p>{step.description}</p>
-                <div className="flex flex-col gap-2">
-                  {step.checklist.map((item) => (
-                    <div key={item} className="flex items-center gap-2">
-                      <Checkbox />
-                      <p>{item}</p>
-                    </div>
-                  ))}
-                </div>
+              <DialogStackDescription>
+                {step.description}
               </DialogStackDescription>
             </DialogStackHeader>
+            <div className="flex flex-col gap-2 mt-4">
+              {step.checklist.map((item) => (
+                <div key={item} className="flex items-center gap-2">
+                  <Checkbox />
+                  <span className="text-sm">{item}</span>
+                </div>
+              ))}
+            </div>
             <DialogStackFooter className="justify-end">
               {index > 0 && (
                 <DialogStackPrevious asChild>

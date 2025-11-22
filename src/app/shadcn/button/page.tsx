@@ -3,110 +3,14 @@
 import { PageHeader } from "@/components/page-header";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CodeBlock, ExampleSection } from "@/components/docs";
 import {
   ArrowUpIcon,
   ArrowUpRightIcon,
   CircleFadingArrowUpIcon,
-  ExternalLink,
 } from "lucide-react";
 import { IconGitBranch } from "@tabler/icons-react";
 import Link from "next/link";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import {
-  oneLight,
-  oneDark,
-} from "react-syntax-highlighter/dist/esm/styles/prism";
-import { useEffect, useState } from "react";
-
-function CodeBlock({ code }: { code: string }) {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    // 다크 모드 감지
-    const checkDarkMode = () => {
-      setIsDark(document.documentElement.classList.contains("dark"));
-    };
-
-    checkDarkMode();
-
-    // 다크 모드 변경 감지
-    const observer = new MutationObserver(checkDarkMode);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div className="rounded-lg overflow-hidden border">
-      <SyntaxHighlighter
-        language="tsx"
-        style={isDark ? oneDark : oneLight}
-        customStyle={{
-          margin: 0,
-          padding: "1rem",
-          fontSize: "0.875rem",
-          fontFamily: "ui-monospace, monospace",
-        }}
-        showLineNumbers={false}
-        wrapLines={true}
-      >
-        {code}
-      </SyntaxHighlighter>
-    </div>
-  );
-}
-
-function ExampleSection({
-  title,
-  titleLink,
-  description,
-  preview,
-  code,
-}: {
-  title: string;
-  titleLink?: string;
-  description?: string;
-  preview: React.ReactNode;
-  code: string;
-}) {
-  return (
-    <div className="space-y-4">
-      <div>
-        <h2 className="text-2xl font-bold mb-2">
-          {titleLink ? (
-            <Link
-              href={titleLink}
-              className="inline-flex items-center gap-2 hover:text-primary underline-offset-4 hover:underline"
-            >
-              {title}
-              <ExternalLink className="size-5" />
-            </Link>
-          ) : (
-            title
-          )}
-        </h2>
-        {description && <p className="text-muted-foreground">{description}</p>}
-      </div>
-      <Tabs defaultValue="preview" className="w-full">
-        <TabsList>
-          <TabsTrigger value="preview">Preview</TabsTrigger>
-          <TabsTrigger value="code">Code</TabsTrigger>
-        </TabsList>
-        <TabsContent value="preview" className="mt-4">
-          <div className="flex items-center justify-center min-h-[200px] border rounded-lg bg-background p-8">
-            {preview}
-          </div>
-        </TabsContent>
-        <TabsContent value="code" className="mt-4">
-          <CodeBlock code={code} />
-        </TabsContent>
-      </Tabs>
-    </div>
-  );
-}
 
 export default function ButtonPage() {
   return (

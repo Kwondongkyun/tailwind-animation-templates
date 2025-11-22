@@ -1,15 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import {
-  oneLight,
-  oneDark,
-} from "react-syntax-highlighter/dist/esm/styles/prism";
-
+import { useState } from "react";
 import { PageHeader } from "@/components/page-header";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
+import { CodeBlock, ExampleSection } from "@/components/docs";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const basicUsageCode = `import { Checkbox } from "@/components/ui/checkbox"
@@ -278,80 +273,6 @@ export default function PreferenceCardExample() {
   )
 }
 `;
-
-function CodeBlock({ code }: { code: string }) {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const checkDarkMode = () => {
-      setIsDark(document.documentElement.classList.contains("dark"));
-    };
-
-    checkDarkMode();
-
-    const observer = new MutationObserver(checkDarkMode);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div className="overflow-hidden rounded-lg border">
-      <SyntaxHighlighter
-        language="tsx"
-        style={isDark ? oneDark : oneLight}
-        customStyle={{
-          margin: 0,
-          padding: "1rem",
-          fontSize: "0.875rem",
-          fontFamily: "ui-monospace, monospace",
-        }}
-        showLineNumbers={false}
-        wrapLines={true}
-      >
-        {code}
-      </SyntaxHighlighter>
-    </div>
-  );
-}
-
-function ExampleSection({
-  title,
-  description,
-  preview,
-  code,
-}: {
-  title: string;
-  description?: string;
-  preview: React.ReactNode;
-  code: string;
-}) {
-  return (
-    <div className="space-y-4">
-      <div>
-        <h2 className="mb-2 text-2xl font-bold">{title}</h2>
-        {description && <p className="text-muted-foreground">{description}</p>}
-      </div>
-      <Tabs defaultValue="preview" className="w-full">
-        <TabsList>
-          <TabsTrigger value="preview">Preview</TabsTrigger>
-          <TabsTrigger value="code">Code</TabsTrigger>
-        </TabsList>
-        <TabsContent value="preview" className="mt-4">
-          <div className="flex min-h-[200px] items-center justify-center rounded-lg border bg-background p-8">
-            {preview}
-          </div>
-        </TabsContent>
-        <TabsContent value="code" className="mt-4">
-          <CodeBlock code={code} />
-        </TabsContent>
-      </Tabs>
-    </div>
-  );
-}
 
 function ControlledCheckboxPreview() {
   const [checked, setChecked] = useState(false);
