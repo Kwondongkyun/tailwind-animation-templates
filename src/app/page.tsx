@@ -59,9 +59,9 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-center space-y-4 py-8"
+            className="flex flex-col items-center justify-center gap-4 py-8"
           >
-            <div className="flex items-center justify-center gap-2 mb-4">
+            <div className="flex items-center justify-center gap-2">
               <Badge variant="secondary" className="text-sm">
                 <Sparkles className="size-3 mr-1" />
                 최신 기술 스택
