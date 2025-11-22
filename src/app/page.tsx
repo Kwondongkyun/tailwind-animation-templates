@@ -27,6 +27,10 @@ import {
   Boxes,
   Loader2,
   Heart,
+  Layers,
+  BookOpen,
+  FileText,
+  GitCommit,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -105,9 +109,9 @@ export default function Home() {
               <Card>
                 <CardContent className="p-6 text-center">
                   <Component className="size-8 mx-auto mb-2 text-primary" />
-                  <div className="text-3xl font-bold">8+</div>
+                  <div className="text-3xl font-bold">10+</div>
                   <div className="text-sm text-muted-foreground">
-                    기본 컴포넌트
+                    UI 컴포넌트
                   </div>
                 </CardContent>
               </Card>
@@ -126,10 +130,10 @@ export default function Home() {
             <motion.div variants={item}>
               <Card>
                 <CardContent className="p-6 text-center">
-                  <Atom className="size-8 mx-auto mb-2 text-blue-500" />
-                  <div className="text-3xl font-bold">2+</div>
+                  <Palette className="size-8 mx-auto mb-2 text-blue-500" />
+                  <div className="text-3xl font-bold">4+</div>
                   <div className="text-sm text-muted-foreground">
-                    커스텀 컴포넌트
+                    디자인 시스템
                   </div>
                 </CardContent>
               </Card>
@@ -137,10 +141,10 @@ export default function Home() {
             <motion.div variants={item}>
               <Card>
                 <CardContent className="p-6 text-center">
-                  <Code2 className="size-8 mx-auto mb-2 text-green-500" />
-                  <div className="text-3xl font-bold">100%</div>
+                  <BookOpen className="size-8 mx-auto mb-2 text-green-500" />
+                  <div className="text-3xl font-bold">4+</div>
                   <div className="text-sm text-muted-foreground">
-                    TypeScript
+                    가이드 문서
                   </div>
                 </CardContent>
               </Card>
@@ -162,85 +166,75 @@ export default function Home() {
               animate="show"
               className="grid md:grid-cols-2 gap-6"
             >
-              {/* Shadcn UI Components */}
+              {/* Components */}
               <motion.div variants={item}>
                 <Card className="h-full hover:shadow-lg transition-shadow">
                   <CardHeader>
                     <div className="flex items-center gap-2 mb-2">
                       <Component className="size-6 text-primary" />
-                      <CardTitle>기본 컴포넌트</CardTitle>
+                      <CardTitle>컴포넌트</CardTitle>
                     </div>
                     <CardDescription>
-                      Shadcn UI 기반의 검증된 컴포넌트 라이브러리
+                      기본부터 고급까지, 다양한 UI 컴포넌트 라이브러리
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <div className="flex flex-wrap gap-2">
-                      <Link href="/shadcn/button">
-                        <Badge
-                          variant="secondary"
-                          className="cursor-pointer hover:bg-secondary/80"
-                        >
-                          <MousePointerClick className="size-3 mr-1" />
-                          Button
-                        </Badge>
-                      </Link>
-                      <Link href="/shadcn/badge">
-                        <Badge
-                          variant="secondary"
-                          className="cursor-pointer hover:bg-secondary/80"
-                        >
-                          Badge
-                        </Badge>
-                      </Link>
-                      <Link href="/shadcn/input">
-                        <Badge
-                          variant="secondary"
-                          className="cursor-pointer hover:bg-secondary/80"
-                        >
-                          Input
-                        </Badge>
-                      </Link>
-                      <Link href="/shadcn/card">
-                        <Badge
-                          variant="secondary"
-                          className="cursor-pointer hover:bg-secondary/80"
-                        >
-                          Card
-                        </Badge>
-                      </Link>
-                      <Link href="/shadcn/dialog">
-                        <Badge
-                          variant="secondary"
-                          className="cursor-pointer hover:bg-secondary/80"
-                        >
-                          Dialog
-                        </Badge>
-                      </Link>
-                      <Link href="/shadcn/tooltip">
-                        <Badge
-                          variant="secondary"
-                          className="cursor-pointer hover:bg-secondary/80"
-                        >
-                          Tooltip
-                        </Badge>
-                      </Link>
-                      <Link href="/shadcn/select">
-                        <Badge
-                          variant="secondary"
-                          className="cursor-pointer hover:bg-secondary/80"
-                        >
-                          Select
-                        </Badge>
-                      </Link>
-                      <Link href="/shadcn/label">
-                        <Badge
-                          variant="secondary"
-                          className="cursor-pointer hover:bg-secondary/80"
-                        >
-                          Label
-                        </Badge>
-                      </Link>
+                    <div className="space-y-3">
+                      <div>
+                        <p className="text-sm font-semibold mb-2">
+                          기본 컴포넌트 (Shadcn UI)
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          <Link href="/shadcn/button">
+                            <Badge
+                              variant="secondary"
+                              className="cursor-pointer hover:bg-secondary/80"
+                            >
+                              Button
+                            </Badge>
+                          </Link>
+                          <Link href="/shadcn/input">
+                            <Badge
+                              variant="secondary"
+                              className="cursor-pointer hover:bg-secondary/80"
+                            >
+                              Input
+                            </Badge>
+                          </Link>
+                          <Link href="/shadcn/card">
+                            <Badge
+                              variant="secondary"
+                              className="cursor-pointer hover:bg-secondary/80"
+                            >
+                              Card
+                            </Badge>
+                          </Link>
+                          <Link href="/shadcn/dialog">
+                            <Badge
+                              variant="secondary"
+                              className="cursor-pointer hover:bg-secondary/80"
+                            >
+                              Dialog
+                            </Badge>
+                          </Link>
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold mb-2">
+                          고급 컴포넌트 (Kibo UI)
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          <Link href="/kibo/dialog-stack">
+                            <Badge
+                              variant="secondary"
+                              className="cursor-pointer hover:bg-secondary/80"
+                            >
+                              <Layers className="size-3 mr-1" />
+                              Dialog Stack
+                            </Badge>
+                          </Link>
+                        </div>
+                      </div>
                     </div>
                     <ul className="space-y-2 text-sm">
                       <li className="flex items-center gap-2">
@@ -359,58 +353,71 @@ export default function Home() {
                 </Card>
               </motion.div>
 
-              {/* Custom Components */}
+              {/* Design System */}
               <motion.div variants={item}>
                 <Card className="h-full hover:shadow-lg transition-shadow">
                   <CardHeader>
                     <div className="flex items-center gap-2 mb-2">
-                      <Atom className="size-6 text-blue-500" />
-                      <CardTitle>커스텀 컴포넌트</CardTitle>
-                      <Badge variant="outline" className="ml-auto">
-                        React 19.2
-                      </Badge>
+                      <Palette className="size-6 text-blue-500" />
+                      <CardTitle>디자인 시스템</CardTitle>
                     </div>
                     <CardDescription>
-                      최신 React 기능을 활용한 고급 컴포넌트
+                      일관성 있는 디자인을 위한 시스템 가이드
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="flex flex-wrap gap-2">
-                      <Link href="/animation/activity">
+                      <Link href="/design-system/overview">
                         <Badge
                           variant="secondary"
                           className="cursor-pointer hover:bg-secondary/80"
                         >
-                          <Zap className="size-3 mr-1" />
-                          Activity
+                          Overview
                         </Badge>
                       </Link>
-                      <Link href="/animation/spinner">
+                      <Link href="/design-system/typography">
                         <Badge
                           variant="secondary"
                           className="cursor-pointer hover:bg-secondary/80"
                         >
-                          <Loader2 className="size-3 mr-1" />
-                          Spinner
+                          <FileText className="size-3 mr-1" />
+                          Typography
+                        </Badge>
+                      </Link>
+                      <Link href="/design-system/colors">
+                        <Badge
+                          variant="secondary"
+                          className="cursor-pointer hover:bg-secondary/80"
+                        >
+                          <Palette className="size-3 mr-1" />
+                          Colors
+                        </Badge>
+                      </Link>
+                      <Link href="/design-system/spacing">
+                        <Badge
+                          variant="secondary"
+                          className="cursor-pointer hover:bg-secondary/80"
+                        >
+                          Spacing
                         </Badge>
                       </Link>
                     </div>
                     <ul className="space-y-2 text-sm">
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="size-4 text-blue-500" />
-                        <span>React 19.2 Activity 컴포넌트</span>
+                        <span>타이포그래피 스케일</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="size-4 text-blue-500" />
-                        <span>상태 유지 기능 데모</span>
+                        <span>시맨틱 컬러 시스템</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="size-4 text-blue-500" />
-                        <span>상세한 개념 설명</span>
+                        <span>간격 및 레이아웃 가이드</span>
                       </li>
                     </ul>
                     <Button variant="outline" className="w-full" asChild>
-                      <Link href="/animation/activity">
+                      <Link href="/design-system/overview">
                         둘러보기
                         <ArrowRight className="size-4 ml-2" />
                       </Link>
@@ -419,55 +426,74 @@ export default function Home() {
                 </Card>
               </motion.div>
 
-              {/* Tech Stack */}
+              {/* Guidelines */}
               <motion.div variants={item}>
                 <Card className="h-full hover:shadow-lg transition-shadow">
                   <CardHeader>
                     <div className="flex items-center gap-2 mb-2">
-                      <Palette className="size-6 text-green-500" />
-                      <CardTitle>기술 스택</CardTitle>
+                      <BookOpen className="size-6 text-green-500" />
+                      <CardTitle>지침</CardTitle>
                     </div>
                     <CardDescription>
-                      최신 프론트엔드 기술 스택으로 구축
+                      프로젝트 규칙과 베스트 프랙티스
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="text-center p-3 bg-muted rounded-lg">
-                        <div className="font-semibold">Next.js 16</div>
-                        <div className="text-xs text-muted-foreground">
-                          프레임워크
-                        </div>
-                      </div>
-                      <div className="text-center p-3 bg-muted rounded-lg">
-                        <div className="font-semibold">React 19.2</div>
-                        <div className="text-xs text-muted-foreground">
-                          라이브러리
-                        </div>
-                      </div>
-                      <div className="text-center p-3 bg-muted rounded-lg">
-                        <div className="font-semibold">Tailwind v4</div>
-                        <div className="text-xs text-muted-foreground">
-                          스타일링
-                        </div>
-                      </div>
-                      <div className="text-center p-3 bg-muted rounded-lg">
-                        <div className="font-semibold">TypeScript</div>
-                        <div className="text-xs text-muted-foreground">
-                          타입 안전성
-                        </div>
-                      </div>
+                    <div className="flex flex-wrap gap-2">
+                      <Link href="/guidelines/commit-rules">
+                        <Badge
+                          variant="secondary"
+                          className="cursor-pointer hover:bg-secondary/80"
+                        >
+                          <GitCommit className="size-3 mr-1" />
+                          커밋 규칙
+                        </Badge>
+                      </Link>
+                      <Link href="/guidelines/pr-rules">
+                        <Badge
+                          variant="secondary"
+                          className="cursor-pointer hover:bg-secondary/80"
+                        >
+                          PR 규칙
+                        </Badge>
+                      </Link>
+                      <Link href="/guidelines/tech-stack">
+                        <Badge
+                          variant="secondary"
+                          className="cursor-pointer hover:bg-secondary/80"
+                        >
+                          기술 스택
+                        </Badge>
+                      </Link>
+                      <Link href="/guidelines/cursor-rules">
+                        <Badge
+                          variant="secondary"
+                          className="cursor-pointer hover:bg-secondary/80"
+                        >
+                          커서 룰
+                        </Badge>
+                      </Link>
                     </div>
                     <ul className="space-y-2 text-sm">
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="size-4 text-green-500" />
-                        <span>CSS 애니메이션</span>
+                        <span>Conventional Commits 규칙</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="size-4 text-green-500" />
-                        <span>Framer Motion 애니메이션</span>
+                        <span>PR 템플릿 및 리뷰 가이드</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="size-4 text-green-500" />
+                        <span>기술 스택 및 도구 소개</span>
                       </li>
                     </ul>
+                    <Button variant="outline" className="w-full" asChild>
+                      <Link href="/guidelines/tech-stack">
+                        둘러보기
+                        <ArrowRight className="size-4 ml-2" />
+                      </Link>
+                    </Button>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -538,17 +564,23 @@ export default function Home() {
               <br />
               아래 버튼을 클릭하여 바로 시작할 수 있습니다.
             </p>
-            <div className="flex items-center justify-center gap-4 pt-4">
+            <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
               <Button size="lg" asChild>
                 <Link href="/shadcn/button">
                   <Component className="size-4 mr-2" />
-                  기본 컴포넌트 보기
+                  컴포넌트 보기
                 </Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link href="/animation/fade">
-                  <Sparkles className="size-4 mr-2" />
-                  애니메이션 보기
+                <Link href="/design-system/overview">
+                  <Palette className="size-4 mr-2" />
+                  디자인 시스템
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" asChild>
+                <Link href="/guidelines/tech-stack">
+                  <BookOpen className="size-4 mr-2" />
+                  가이드 문서
                 </Link>
               </Button>
             </div>
